@@ -31,9 +31,11 @@
 <thead>
 	<tr>
 		<th>ID</th>
-		<th width="30%">Nome</th>
+		<th width="20%">Nome</th>
 		<th>CPF/CNPJ</th>
 		<th>Telefone</th>
+		<th>Celular</th>
+		<th>Data de nascimento</th>
 		<th>Atualizado em</th>
 		<th>Opções</th>
 	</tr>
@@ -45,7 +47,9 @@
 		<td><?php echo $customer['id']; ?></td>
 		<td><?php echo $customer['name']; ?></td>
 		<td><?php echo $customer['cpf_cnpj']; ?></td>
-		<td>00 0000-0000</td>
+		<td><?php echo $customer['phone']; ?></td>
+		<td><?php echo $customer['mobile']; ?></td>
+		<td><?php echo $customer['birthdate']; ?></td>
 		<td><?php echo $customer['modified']; ?></td>
 		<td class="actions text-right">
 			<a href="view.php?id=<?php echo $customer['id']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>

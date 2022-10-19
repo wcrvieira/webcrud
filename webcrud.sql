@@ -1,5 +1,6 @@
+CREATE DATABASE webcrud;
 
-
+USE webcrud;
 
 CREATE TABLE customers (
   id int(11) NOT NULL,

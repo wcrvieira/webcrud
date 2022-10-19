@@ -76,8 +76,8 @@
     </div>
     
     <div class="form-group col-md-2">
-      <label for="campo3">UF</label>
-      <input type="text" class="form-control">
+      <label for="campo3">E-mail</label>
+      <input type="email" class="form-control" name="customer['email']">
     </div>
   </div>
   
