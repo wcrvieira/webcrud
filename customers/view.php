@@ -52,6 +52,9 @@
 
 	<dt>Inscrição Estadual:</dt>
 	<dd><?php echo $customer['ie']; ?></dd>
+
+	<dt>E-mail:</dt>
+	<dd><?php echo $customer['email']; ?></dd>
 </dl>
 
 <div id="actions" class="row">
