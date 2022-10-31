@@ -5,27 +5,26 @@
 
 <?php include(HEADER_TEMPLATE); ?>
 
-<h2>Novo Cliente</h2>
+<h2>Novo Produto</h2>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <form action="add.php" method="post">
   <!-- area de campos do form -->
   <hr />
   <div class="row">
-    <div class="form-group col-md-7">
-      <label for="name">Nome / Razão Social</label>
-      <input type="text" class="form-control" name="customer['name']">
+    <div class="form-group col-md-5">
+      <label for="name">Descrição</label>
+      <input type="text" class="form-control" name="products['description']">
+    </div>
+
+    <div class="form-group col-md-4">
+      <label for="campo2">Classificação</label>
+      <input type="text" class="form-control" name="products['classification']">
     </div>
 
     <div class="form-group col-md-3">
-      <label for="campo2">CNPJ / CPF</label>
-      <input oninput="mascara(this)" type="text" pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})"
-        class="form-control" name="customer['cpf_cnpj']">
-    </div>
-
-    <div class="form-group col-md-2">
-      <label for="campo3">Data de Nascimento</label>
-      <input oninput="validarData(this)" type="date" class="form-control" name="customer['birthdate']">
+      <label for="campo3">Quantidade</label>
+      <input type="date" class="form-control" name="products['quantity']">
     </div>
   </div>
   
