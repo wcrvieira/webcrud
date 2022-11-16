@@ -1,47 +1,60 @@
-<?php require_once 'config.php'; ?>
-<?php require_once DBAPI; ?>
+<?php
+    session_start();
+?>
 
-<?php include(HEADER_TEMPLATE); ?>
-<?php $db = open_database(); ?>
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema de Login - PHP + MySQL</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
 
-<h1>Painel administrativo</h1>
-<hr />
+<body>
+    <section class="hero is-success is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title has-text-grey">Sistema de Login</h3>
+                    
+                    <?php
+                    if(isset($_SESSION['nao_autenticado'])):
+                    ?>
+                    <div class="notification is-danger">
+                      <p>ERRO: Usuário ou senha inválidos.</p>
+                    </div>
+                    <?php
+                    endif;
+                    unset($_SESSION['nao_autenticado']);
+                    ?>
+                    <div class="box">
+                        <form action="login/login.php" method="POST">
+                            <div class="field">
+                                <div class="control">
+                                    <input name="usuario" name="text" class="input is-large" placeholder="Seu usuário" autofocus="">
+                                </div>
+                            </div>
 
-<?php if ($db) : ?>
+                            <div class="field">
+                                <div class="control">
+                                    <input name="senha" class="input is-large" type="password" placeholder="Sua senha">
+                                </div>
+                            </div>
 
-<div class="row">
-	<div class="col-xs-6 col-sm-3 col-md-2">
-		<a href="customers/add.php" class="btn btn-primary">
-			<div class="row">
-				<div class="col-xs-12 text-center">
-					<i class="fa fa-plus fa-5x"></i>
-				</div>
-				<div class="col-xs-12 text-center">
-					<p>Novo Cliente</p>
-				</div>
-			</div>
-		</a>
-	</div>
+                            <div>
+                                <button class="button is-block is-link is-large is-fullwidth" type="submit">Entrar</button>
+                            </div>                            
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
 
-	<div class="col-xs-6 col-sm-3 col-md-2">
-		<a href="customers" class="btn btn-default">
-			<div class="row">
-				<div class="col-xs-12 text-center">
-					<i class="fa fa-user fa-5x"></i>
-				</div>
-				<div class="col-xs-12 text-center">
-					<p>Clientes</p>
-				</div>
-			</div>
-		</a>
-	</div>
-</div>
-
-<?php else : ?>
-	<div class="alert alert-danger" role="alert">
-		<p><strong>ERRO:</strong> Não foi possível Conectar ao Banco de Dados!</p>
-	</div>
-
-<?php endif; ?>
-
-<?php include(FOOTER_TEMPLATE); ?>
+</html>
